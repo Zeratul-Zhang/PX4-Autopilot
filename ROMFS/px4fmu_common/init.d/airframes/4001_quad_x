@@ -22,3 +22,27 @@ param set-default CA_ROTOR2_KM -0.05
 param set-default CA_ROTOR3_PX -1
 param set-default CA_ROTOR3_PY 1
 param set-default CA_ROTOR3_KM -0.05
+
+param set-default BAT1_V_EMPTY 3.40
+param set-default BAT1_N_CELLS 3
+param set-default BAT_CRIT_THR 0.1
+param set-default COM_LOW_BAT_ACT 2
+param set-default EKF2_EV_CTRL 11
+param set-default EKF2_EV_DELAY 5.0
+param set-default EKF2_EV_NOISE_MD 1
+param set-default EKF2_EV_POS_Z -0.02
+param set-default EKF2_EVP_NOISE 0.05
+param set-default EKF2_EVP_GATE 10
+param set-default EKF2_MAG_TYPE 5
+param set-default EKF2_HGT_REF 3
+param set-default MAV_0_MODE 1
+param set-default MAV_0_RATE 11520
+param set-default RC_CRSF_PRT_CFG 102
+param set-default RC_INPUT_PROTO 6
+param set-default RC_PORT_CONFIG 0
+param set-default RC_SBUS_PRT_CFG 0
+param set-default SER_TEL1_BAUD 115200
+param set-default SER_TEL4_BAUD 115200
+param set-default MPC_XY_VEL_MAX 3.00
+param set-default MPC_Z_VEL_MAX_UP 1.00
+param set-default MPC_VEL_MANUAL 1.00

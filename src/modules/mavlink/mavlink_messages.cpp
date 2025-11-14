@@ -88,6 +88,7 @@
 #include "streams/HYGROMETER_SENSOR.hpp"
 #include "streams/LANDING_TARGET.hpp"
 #include "streams/LOCAL_POSITION_NED.hpp"
+#include "streams/LOCAL_POSITION_NED_COV.hpp"
 #include "streams/MAG_CAL_REPORT.hpp"
 #include "streams/MANUAL_CONTROL.hpp"
 #include "streams/MOUNT_ORIENTATION.hpp"
@@ -323,6 +324,9 @@ static const StreamListItem streams_list[] = {
 #if defined(LOCAL_POSITION_NED_HPP)
 	create_stream_list_item<MavlinkStreamLocalPositionNED>(),
 #endif // LOCAL_POSITION_NED_HPP
+#if defined(LOCAL_POSITION_NED_COV_HPP)
+	create_stream_list_item<MavlinkStreamLocalPositionNEDcov>(),
+#endif // LOCAL_POSITION_NED_COV_HPP
 #if defined(MAG_CAL_REPORT_HPP)
 	create_stream_list_item<MavlinkStreamMagCalReport>(),
 #endif // MAG_CAL_REPORT_HPP

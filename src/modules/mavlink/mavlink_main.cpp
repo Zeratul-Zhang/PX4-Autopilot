@@ -1438,6 +1438,7 @@ Mavlink::configure_streams_to_default(const char *configure_single_stream)
 		configure_stream_local("HOME_POSITION", 0.5f);
 		configure_stream_local("HYGROMETER_SENSOR", 0.1f);
 		configure_stream_local("LOCAL_POSITION_NED", 1.0f);
+		configure_stream_local("LOCAL_POSITION_NED_COV", 1.0f);
 		configure_stream_local("MOUNT_ORIENTATION", 10.0f);
 		configure_stream_local("NAV_CONTROLLER_OUTPUT", 1.0f);
 		configure_stream_local("OBSTACLE_DISTANCE", 1.0f);
@@ -1480,6 +1481,7 @@ Mavlink::configure_streams_to_default(const char *configure_single_stream)
 		configure_stream_local("CAMERA_TRIGGER", unlimited_rate);
 		configure_stream_local("HIGHRES_IMU", 50.0f);
 		configure_stream_local("LOCAL_POSITION_NED", 30.0f);
+		configure_stream_local("LOCAL_POSITION_NED_COV", 30.0f);
 		configure_stream_local("ATTITUDE", 100.0f);
 		configure_stream_local("ALTITUDE", 10.0f);
 		configure_stream_local("DISTANCE_SENSOR", 10.0f);
@@ -1560,6 +1562,7 @@ Mavlink::configure_streams_to_default(const char *configure_single_stream)
 		configure_stream_local("TIMESYNC", 10.0f);
 		configure_stream_local("CAMERA_TRIGGER", unlimited_rate);
 		configure_stream_local("LOCAL_POSITION_NED", 30.0f);
+		configure_stream_local("LOCAL_POSITION_NED_COV", 30.0f);
 		configure_stream_local("ATTITUDE", 20.0f);
 		configure_stream_local("ALTITUDE", 10.0f);
 		configure_stream_local("DISTANCE_SENSOR", 10.0f);
@@ -1637,59 +1640,32 @@ Mavlink::configure_streams_to_default(const char *configure_single_stream)
 	/* fallthrough */
 	case MAVLINK_MODE_CUSTOM:
 		//stream nothing
-		configure_stream_local("ALTITUDE", 20.0f);
+		configure_stream_local("ALTITUDE", 1.0f);
 		configure_stream_local("ATTITUDE", 20.0f);
-		// configure_stream_local("ATTITUDE_QUATERNION", 10.0f);
+		configure_stream_local("ATTITUDE_QUATERNION", 20.0f);
 		configure_stream_local("ATTITUDE_TARGET", 2.0f);
+
+		configure_stream_local("LOCAL_POSITION_NED", 20.0f);
+		configure_stream_local("LOCAL_POSITION_NED_COV", 20.0f);
+
+		configure_stream_local("GLOBAL_POSITION_INT", 20.0f);
+		configure_stream_local("GPS_RAW_INT", 1.0f);
+		configure_stream_local("HOME_POSITION", 0.5f);
+
+		configure_stream_local("PING", 0.1f);
+		configure_stream_local("POSITION_TARGET_GLOBAL_INT", 10.0f);
+		configure_stream_local("POSITION_TARGET_LOCAL_NED", 10.0f);
+
+
+		configure_stream_local("RAW_RPM", 2.0f);
 		configure_stream_local("BATTERY_STATUS", 0.5f);
-		// configure_stream_local("DISTANCE_SENSOR", 0.5f);
-		// configure_stream_local("EFI_STATUS", 2.0f);
-		// configure_stream_local("ESC_INFO", 1.0f);
-		// configure_stream_local("ESC_STATUS", 1.0f);
 		configure_stream_local("ESTIMATOR_STATUS", 0.5f);
 		configure_stream_local("EXTENDED_SYS_STATE", 1.0f);
-		// configure_stream_local("GIMBAL_DEVICE_ATTITUDE_STATUS", 1.0f);
-		// configure_stream_local("GIMBAL_DEVICE_SET_ATTITUDE", 5.0f);
-		// configure_stream_local("GIMBAL_MANAGER_STATUS", 0.5f);
-		// configure_stream_local("GLOBAL_POSITION_INT", 5.0f);
-		// configure_stream_local("GPS2_RAW", 1.0f);
-		// configure_stream_local("GPS_GLOBAL_ORIGIN", 1.0f);
-		// configure_stream_local("GPS_RAW_INT", 5.0f);
-		// configure_stream_local("GPS_STATUS", 1.0f);
-		configure_stream_local("HOME_POSITION", 0.5f);
-		// configure_stream_local("HYGROMETER_SENSOR", 0.1f);
-		configure_stream_local("LOCAL_POSITION_NED", 20.0f);
-		// configure_stream_local("MOUNT_ORIENTATION", 10.0f);
-		// configure_stream_local("NAV_CONTROLLER_OUTPUT", 1.0f);
-		// configure_stream_local("OBSTACLE_DISTANCE", 1.0f);
-		// configure_stream_local("OPEN_DRONE_ID_LOCATION", 1.f);
-		// configure_stream_local("OPEN_DRONE_ID_SYSTEM", 1.f);
-		// configure_stream_local("OPEN_DRONE_ID_ARM_STATUS", 1.f);
-		// configure_stream_local("ORBIT_EXECUTION_STATUS", 2.0f);
-		configure_stream_local("PING", 0.1f);
-		// configure_stream_local("POSITION_TARGET_GLOBAL_INT", 1.0f);
-		configure_stream_local("POSITION_TARGET_LOCAL_NED", 20.0f);
-		configure_stream_local("RAW_RPM", 2.0f);
 		configure_stream_local("RC_CHANNELS", 5.0f);
-		// configure_stream_local("SCALED_PRESSURE", 1.0f);
 		configure_stream_local("SERVO_OUTPUT_RAW_0", 1.0f);
 		configure_stream_local("SYS_STATUS", 1.0f);
-		// configure_stream_local("TIME_ESTIMATE_TO_TARGET", 1.0f);
 		configure_stream_local("VFR_HUD", 1.0f);
-		// configure_stream_local("VIBRATION", 0.1f);
-		// configure_stream_local("WIND_COV", 0.5f);
-
-		configure_stream_local("ALTITUDE", 0.5f);
-		configure_stream_local("ATTITUDE", 10.0f);
-		configure_stream_local("EXTENDED_SYS_STATE", 0.1f);
-		configure_stream_local("GLOBAL_POSITION_INT", 5.0f);
-		configure_stream_local("GPS_RAW_INT", 0.5f);
-		configure_stream_local("HOME_POSITION", 0.1f);
 		configure_stream_local("NAMED_VALUE_FLOAT", 1.0f);
-		configure_stream_local("RC_CHANNELS", 0.5f);
-		configure_stream_local("SYS_STATUS", 0.1f);
-		configure_stream_local("VFR_HUD", 1.0f);
-
 		break;
 
 	case MAVLINK_MODE_CONFIG: // USB
@@ -1697,6 +1673,7 @@ Mavlink::configure_streams_to_default(const char *configure_single_stream)
 		configure_stream_local("TIMESYNC", 10.0f);
 		configure_stream_local("CAMERA_TRIGGER", unlimited_rate);
 		configure_stream_local("LOCAL_POSITION_NED", 30.0f);
+		configure_stream_local("LOCAL_POSITION_NED_COV", 30.0f);
 		configure_stream_local("DISTANCE_SENSOR", 10.0f);
 		configure_stream_local("MOUNT_ORIENTATION", 10.0f);
 		configure_stream_local("ODOMETRY", 30.0f);
@@ -1794,6 +1771,7 @@ Mavlink::configure_streams_to_default(const char *configure_single_stream)
 		configure_stream_local("TIMESYNC", 10.0f);
 		configure_stream_local("CAMERA_TRIGGER", unlimited_rate);
 		configure_stream_local("LOCAL_POSITION_NED", 30.0f);
+		configure_stream_local("LOCAL_POSITION_NED_COV", 30.0f);
 		configure_stream_local("ATTITUDE", 20.0f);
 		configure_stream_local("ATTITUDE_QUATERNION", 20.0f);
 		configure_stream_local("ALTITUDE", 10.0f);
